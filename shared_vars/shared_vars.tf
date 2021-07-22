@@ -2,8 +2,12 @@ output "vpcid" {
     value = "${local.vpcid}"
 }
 
-output "publicsubnetid" {
-    value = "${local.publicsubnetid}"
+output "publicsubnetid1" {
+    value = "${local.publicsubnetid1}"
+}
+
+output "publicsubnetid2" {
+    value = "${local.publicsubnetid2}"
 }
 
 output "privatesubnetid" {
@@ -24,17 +28,24 @@ locals {
     }
     vpcid = "${lookup(local.vpcid_env, local.env)}"
 
-    publicsubnet_env = {
+    publicsubnetid1_env = {
         default = "subnet-cd1a8afc"
         staging = "subnet-cd1a8afc"
         production = "subnet-cd1a8afc"
     }
-    publicsubnetid = "${lookup(local.publicsubnet_env, local.env)}"
+    publicsubnetid1 = "${lookup(local.publicsubnetid1_env, local.env)}"
 
-    privatesubnet_env = {
+    publicsubnetid2_env = {
+        default = "subnet-1894df39"
+        staging = "subnet-1894df39"
+        production = "subnet-1894df39"
+    }
+    publicsubnetid2 = "${lookup(local.publicsubnetid2_env, local.env)}"
+
+    privatesubnetid_env = {
         default = "subnet-717d3117"
         staging = "subnet-717d3117"
         production = "subnet-717d3117"
     }
-    privatesubnetid = "${lookup(local.privatesubnet_env, local.env)}"
+    privatesubnetid = "${lookup(local.privatesubnetid_env, local.env)}"
 }

@@ -22,6 +22,10 @@ resource "aws_security_group" "publicsg" {
     }
 }
 
+output "publicsg_id" {
+    value = "${aws_security_group.publicsg.id}"
+}
+
 resource "aws_security_group" "privatesg" {
     name = "privatesg_${module.shared_vars.env_suffix}"
     description = "Private security group for EC2 in ${module.shared_vars.env_suffix}"
@@ -40,4 +44,8 @@ resource "aws_security_group" "privatesg" {
         protocol = "tcp"
         cidr_blocks = ["0.0.0.0/0"]
     }
+}
+
+output "privatesg_id" {
+    value = "${aws_security_group.privatesg.id}"
 }
