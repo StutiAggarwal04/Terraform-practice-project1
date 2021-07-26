@@ -8,9 +8,9 @@ locals {
     env = "${terraform.workspace}"
 
     amiid_env = {
-        default = "ami-0dc2d3e4c0f9ebd18"
-        staging = "ami-0dc2d3e4c0f9ebd18"
-        production = "ami-0dc2d3e4c0f9ebd18"
+        default = "ami-"
+        staging = "ami-"
+        production = "ami-"
     }
     amiid = "${lookup(local.amiid_env, local.env)}"
 
@@ -22,9 +22,9 @@ locals {
     instancetype = "${lookup(local.instancetype_env, local.env)}"
 
     keypairname_env = {
-        default = "elk assignment"
-        staging = "elk assignment"
-        production = "elk assignment"
+        default = "assignment"
+        staging = "assignment"
+        production = "assignment"
     }
     keypairname = "${lookup(local.keypairname_env, local.env)}"
 }
